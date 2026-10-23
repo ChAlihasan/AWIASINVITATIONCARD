@@ -96,86 +96,29 @@ const copy = {
   },
 };
 
-// --- 2. Web Audio Synthesizer ---
-let ctx = null;
-let master = null;
-let timer = null;
-let step = 0;
+// --- 2. HTML5 Audio Controls ---
+const audioElem = document.getElementById("bg-music");
 let playing = false;
 
-const MELODY = [293.66, 329.63, 369.99, 440, 493.88, 440, 369.99, 329.63, 293.66, 246.94];
-
-function ensureAudio() {
-  if (ctx) return ctx;
-  const AC = window.AudioContext || window.webkitAudioContext;
-  ctx = new AC();
-  master = ctx.createGain();
-  master.gain.value = 0.05;
-  master.connect(ctx.destination);
-  return ctx;
-}
-
-function pluck(freq, when, dur, level = 1) {
-  if (!ctx || !master) return;
-  const osc = ctx.createOscillator();
-  const gain = ctx.createGain();
-  const filter = ctx.createBiquadFilter();
-  osc.type = "triangle";
-  osc.frequency.value = freq;
-  filter.type = "lowpass";
-  filter.frequency.value = 1600;
-  gain.gain.setValueAtTime(0.0001, when);
-  gain.gain.exponentialRampToValueAtTime(0.22 * level, when + 0.03);
-  gain.gain.exponentialRampToValueAtTime(0.0001, when + dur);
-  osc.connect(filter);
-  filter.connect(gain);
-  gain.connect(master);
-  osc.start(when);
-  osc.stop(when + dur + 0.05);
-}
-
-function loopMusic() {
-  if (!playing || !ctx) return;
-  const now = ctx.currentTime;
-  const note = MELODY[step % MELODY.length];
-  pluck(note, now, step % 4 === 0 ? 1.5 : 1.05, 0.85);
-  if (step % 4 === 0) pluck(146.83, now, 2.1, 0.45);
-  step += 1;
-  timer = setTimeout(loopMusic, 820);
-}
-
 function startMusic() {
-  const audio = ensureAudio();
-  if (audio.state === "suspended") void audio.resume();
-  if (playing) return;
-  playing = true;
-  loopMusic();
-  updateMusicUI();
+  if (!audioElem) return;
+  audioElem.play().then(() => {
+    playing = true;
+    updateMusicUI();
+  }).catch((error) => {
+    console.log("Audio playback prevented or failed:", error);
+  });
 }
 
 function stopMusic() {
+  if (!audioElem) return;
+  audioElem.pause();
   playing = false;
-  if (timer) clearTimeout(timer);
-  timer = null;
-  if (ctx && master) {
-    master.gain.cancelScheduledValues(ctx.currentTime);
-    master.gain.setValueAtTime(master.gain.value, ctx.currentTime);
-    master.gain.linearRampToValueAtTime(0.0001, ctx.currentTime + 0.25);
-    const m = master;
-    window.setTimeout(() => {
-      if (!playing && ctx) {
-        m.gain.setValueAtTime(0.05, ctx.currentTime);
-      }
-    }, 300);
-  }
   updateMusicUI();
 }
 
 function chime() {
-  const audio = ensureAudio();
-  if (audio.state === "suspended") void audio.resume();
-  const now = audio.currentTime;
-  [523.25, 659.25, 783.99].forEach((freq, i) => pluck(freq, now + i * 0.12, 1.1, 0.7));
+  // Optional chime handler or placeholder
 }
 
 function updateMusicUI() {
@@ -389,7 +332,7 @@ function initCountdown() {
     secondsEl.textContent = String(s).padStart(2, "0");
   }
 
-  tick();
+    tick();
   setInterval(tick, 1000);
 }
 
