@@ -1,26 +1,28 @@
-// --- 1. Bilingual Copy & Constants ---
-const CEREMONY_AT = Date.parse("2026-11-30T10:00:00Z");
+// --- 1. Bilingual Copy (English & Urdu) & Constants ---
+// Set to Nov 13, 2026 at 1:00 PM PKT (+05:00)
+const CEREMONY_AT = Date.parse("2026-11-13T13:00:00+05:00");
 
 const copy = {
   en: {
     tap: "Tap to open",
+    Bismilah: "بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ",
     married: "We're getting married",
-    groomName: "Zayn",
-    groomKin: "Son of Mr. & Mrs. Malik",
-    groomStudy: "B.E., M.S.",
-    groomRole: "Data Scientist",
-    brideName: "Nora",
-    brideKin: "Daughter of Mr. & Mrs. Nasser",
-    brideStudy: "MBBS, M.D.",
-    brideRole: "Pediatrician",
+    groomName: "Awais Sohail",
+    groomKin: "Son of Mr & Mrs.Sohail Nadeem (Late)",
+    groomStudy: "",
+    groomRole: "",
+    brideName: "",
+    brideKin: "Daughter of Mr. & Mrs. Abid",
+    brideStudy: "",
+    brideRole: "",
     welcome:
-      "We are honored to welcome you to the wedding ceremony of Zayn & Nora as they begin their journey together in faith and love. We thank you for being part of this blessed occasion.",
+      "We are honored to welcome you to the wedding ceremony of our son as the begin of their journey together in faith and love. We thank you for being part of this blessed occasion.",
     scratch: "Scratch to reveal",
     forever: "Our forever begins",
     invited: "You're invited",
-    dateLine: "November 30, 2026",
-    weekday: "Monday",
-    time: "10:00 AM",
+    dateLine: "November 13, 2026",
+    weekday: "Friday",
+    time: "1:00 PM",
     save: "Save the date",
     saved: "Saved to your calendar",
     countdown: "Counting down to forever",
@@ -29,139 +31,72 @@ const copy = {
     minutes: "Minutes",
     seconds: "Seconds",
     arrived: "The day is here",
-    program: "Program timeline",
+    program: "Wedding Events",
     events: [
-      { title: "Guest arrival", when: "Nov 30, 2026 — 10:00 AM", note: "We welcome you" },
-      { title: "Wedding ceremony", when: "Nov 30, 2026 — 10:30 AM", note: "Your presence means a lot" },
-      { title: "Reception", when: "Dec 2, 2026 — 7:30 PM", note: "An evening together" },
+      { title: "Mehndi", when: "Nov 12, 2026", note: " At Home 6:00 PM to 10:00 PM" },
+      { title: "Barat", when: "Nov 13, 2026 — Sehra Bandi 12:00 PM", note: "Your presence means a lot" },
+      { title: "Walima", when: "Nov 14, 2026 — 7:00 PM", note: "Umer Marriage Hall, Mandi Bahauddin" },
     ],
     venue: "Venue",
-    hall: "Grand Palace Hall",
-    city: "City Centre, London",
+    hall: "Umer Marriage Hall",
+    city: "Mandi Bahauddin",
     maps: "View on Google Maps",
     dress: "Dress code",
     women: "Women",
     womenNote: "Elegant formal attire in pastel",
     men: "Men",
     menNote: "Suit or traditional formal wear",
-    pre: "Pre-wedding events",
-    mehendi: "Mehendi",
-    mehendiWhen: "Nov 28, 2026 — 8:30 PM",
-    mehendiWhere: "At the bride's house",
-    haldi: "Haldi",
-    haldiWhen: "Nov 28, 2026 — 8:00 PM",
-    haldiWhere: "At the groom's house",
-    transport: "Transportation",
-    transportNote:
-      "Shuttle service will be available from the city centre to the venue. Pickup point: Central Station at 3:30 PM.",
-    stay: "Accommodation",
-    stayNote:
-      "Special rates at The Grand Palace Hotel, five minutes from the venue. Use code WEDDING2026 when booking.",
-    code: "WEDDING2026",
-    gifts: "Gifts",
-    giftsNote:
-      "Your love, blessings, and presence are the greatest gifts we could ever ask for.",
-    rsvp: "RSVP",
-    name: "Your name",
-    namePh: "Your full name",
-    email: "Email",
-    emailPh: "you@example.com",
-    attending: "Will you be attending?",
-    yes: "Joyfully, yes",
-    no: "Regretfully, no",
-    maybe: "Not sure yet",
-    message: "Your message",
-    messagePh: "A wish for the couple",
-    send: "Send message",
-    thanks: "Your note is with us",
-    thanksBody: "Thank you. We cannot wait to celebrate with you.",
-    another: "Write another note",
-    lang: "عربي",
-    needName: "Please add your name",
-    needEmail: "Please add a valid email",
+    lang: "اردو",
     scroll: "Scroll the invitation",
   },
-  ar: {
-    tap: "اضغط للفتح",
-    married: "سنتزوج",
-    groomName: "زين",
-    groomKin: "نجل السيد والسيدة مالك",
-    groomStudy: "بكالوريوس وماجستير هندسة",
-    groomRole: "عالم بيانات",
+  ur: {
+    tap: "کھولنے کے لیے کلک کریں",
+    married: "ہماری شادی خانہ آبادی",
+    groomName: "",
+    groomKin: "فرزند مسٹر اینڈ مسز ملک",
+    groomStudy: "بی ای، ایم ایس",
+    groomRole: "ڈیٹا سائنٹسٹ",
     brideName: "نورا",
-    brideKin: "كريمة السيد والسيدة ناصر",
-    brideStudy: "بكالوريوس ودكتوراه في الطب",
-    brideRole: "طبيبة أطفال",
+    brideKin: "دختر مسٹر اینڈ مسز ناصر",
+    brideStudy: "ایم بی بی ایس، ایم ڈی",
+    brideRole: "ماہرِ امراضِ اطفال",
     welcome:
-      "يشرفنا الترحيب بكم في حفل زفاف زين ونورا حيث يبدآن رحلتهما معاً بالإيمان والمحبة. نشكركم لكونكم جزءاً من هذه المناسبة المباركة.",
-    scratch: "امسح للكشف عن الموعد",
-    forever: "تبدأ أبديتنا",
-    invited: "أنتم مدعوون",
-    dateLine: "٣٠ نوفمبر ٢٠٢٦",
-    weekday: "الاثنين",
-    time: "١٠:٠٠ صباحاً",
-    save: "احفظ الموعد",
-    saved: "تم الحفظ في التقويم",
-    countdown: "العد التنازلي للأبدية",
-    days: "أيام",
-    hours: "ساعات",
-    minutes: "دقائق",
-    seconds: "ثواني",
-    arrived: "لقد حان اليوم المنتظر",
-    program: "برنامج الحفل",
+      "ہم زین اور نورا کی تقریبِ شادی کے اس پرمسرت اور بابرکت موقع پر آپ کو دل کی اتھاہ گہرائیوں سے خوش آمدید کہتے ہیں۔ آپ کی شرکت اور دعائیں ہمارے لیے باعثِ مسرت ہیں۔",
+    scratch: "تاریخ دیکھنے کے لیے اسکریچ کریں",
+    forever: "ہمارے نئے سفر کا آغاز",
+    invited: "آپ مدعو ہیں",
+    dateLine: "13 نومبر 2026",
+    weekday: "جمعہ",
+    time: "دوپہر 1:00 بجے",
+    save: "تاریخ محفوظ کریں",
+    saved: "کیلنڈر میں محفوظ ہو گیا",
+    countdown: "شادی میں باقی وقت",
+    days: "دن",
+    hours: "گھنٹے",
+    minutes: "منٹ",
+    seconds: "سیکنڈ",
+    arrived: "خوشیوں کا دن آ گیا ہے",
+    program: "تقریبات کی تفصیل",
     events: [
-      { title: "وصول الضيوف", when: "٣٠ نوفمبر ٢٠٢٦ — ١٠:٠٠ ص", note: "نرحب بكم" },
-      { title: "مراسم الزفاف", when: "٣٠ نوفمبر ٢٠٢٦ — ١٠:٣٠ ص", note: "حضوركم يسعدنا" },
-      { title: "حفل الاستقبال", when: "٢ ديسمبر ٢٠٢٦ — ٧:٣٠ م", note: "أمسية سعيدة معاً" },
+      { title: "مہندی", when: "12 نومبر 2026", note: "شام کی تقریب" },
+      { title: "بارات", when: "13 نومبر 2026 — روانگی دوپہر 1:00 بجے", note: "آپ کی شرکت ہمارے لیے باعثِ مسرت ہے" },
+      { title: "ولیمہ", when: "14 نومبر 2026 — شام 7:00 بجے", note: "عمر میرج ہال، منڈی بہاؤالدین" },
     ],
-    venue: "المكان",
-    hall: "قاعة القصر الكبير",
-    city: "وسط المدينة، لندن",
-    maps: "عرض على خرائط جوجل",
-    dress: "قواعد اللباس",
-    women: "النساء",
-    womenNote: "ملابس رسمية أنيقة بألوان الباستيل",
-    men: "الرجال",
-    menNote: "بدلة رسمية أو زي تقليدي",
-    pre: "فعاليات ما قبل الزفاف",
-    mehendi: "ليلة الحناء",
-    mehendiWhen: "٢٨ نوفمبر ٢٠٢٦ — ٨:٣٠ م",
-    mehendiWhere: "في منزل العروس",
-    haldi: "حفل الهالدي",
-    haldiWhen: "٢٨ نوفمبر ٢٠٢٦ — ٨:٠٠ م",
-    haldiWhere: "في منزل العريس",
-    transport: "المواصلات",
-    transportNote:
-      "ستتوفر خدمة النقل من وسط المدينة إلى القاعة. نقطة الانطلاق: المحطة المركزية الساعة ٣:٣٠ عصراً.",
-    stay: "الإقامة",
-    stayNote:
-      "أسعار خاصة في فندق القصر الكبير، على بعد خمس دقائق من القاعة. استخدم الرمز WEDDING2026 عند الحجز.",
-    code: "WEDDING2026",
-    gifts: "الهدايا",
-    giftsNote: "محبتكم ودعواتكم وحضوركم هي أجمل هدية يمكن أن نتمناها.",
-    rsvp: "تأكيد الحضور",
-    name: "الاسم",
-    namePh: "الاسم الكامل",
-    email: "البريد الإلكتروني",
-    emailPh: "you@example.com",
-    attending: "هل ستحضر؟",
-    yes: "بكل سرور، نعم",
-    no: "للأسف، لا",
-    maybe: "لست متأكداً بعد",
-    message: "رسالتك",
-    messagePh: "أمنية للعروسين",
-    send: "إرسال الرسالة",
-    thanks: "وصلتنا رسالتك",
-    thanksBody: "شكراً لك. لا يسعنا الانتظار للاحتفال معكم.",
-    another: "كتابة رسالة أخرى",
+    venue: "بمقام",
+    hall: "عمر میرج ہال",
+    city: "منڈی بہاؤالدین",
+    maps: "گوگل میپس پر دیکھیں",
+    dress: "لباس",
+    women: "خواتین",
+    womenNote: "نفیس اور روایتی لباس",
+    men: "حضرات",
+    menNote: "فارمل سوٹ یا روایتی لباس",
     lang: "EN",
-    needName: "يرجى إدخال الاسم",
-    needEmail: "يرجى إدخال بريد إلكتروني صحيح",
-    scroll: "مرر لأسفل",
+    scroll: "نیچے اسکرول کریں",
   },
 };
 
-// --- 2. Web Audio Synthesizer (from src/lib/music.ts) ---
+// --- 2. Web Audio Synthesizer ---
 let ctx = null;
 let master = null;
 let timer = null;
@@ -261,7 +196,7 @@ function renderCopy() {
   const phone = document.getElementById("phone");
   phone.setAttribute("data-lang", currentLang);
   document.documentElement.lang = currentLang;
-  document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
+  document.documentElement.dir = currentLang === "ur" ? "rtl" : "ltr";
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
@@ -269,13 +204,6 @@ function renderCopy() {
       el.textContent = dict.saved;
     } else if (dict[key]) {
       el.textContent = dict[key];
-    }
-  });
-
-  document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
-    const key = el.getAttribute("data-i18n-ph");
-    if (dict[key]) {
-      el.setAttribute("placeholder", dict[key]);
     }
   });
 
@@ -415,11 +343,11 @@ function initSaveDate() {
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
       "BEGIN:VEVENT",
-      "DTSTART:20261130T100000Z",
-      "DTEND:20261130T140000Z",
-      "SUMMARY:Zayn & Nora's Wedding",
-      "DESCRIPTION:Wedding ceremony of Zayn & Nora at Grand Palace Hall, London.",
-      "LOCATION:Grand Palace Hall, City Centre, London",
+      "DTSTART:20261113T080000Z",
+      "DTEND:20261114T180000Z",
+      "SUMMARY:Zayn & Nora's Wedding (Mehndi, Barat & Walima)",
+      "DESCRIPTION:Mehndi: Nov 12 | Barat: Nov 13 (Departure 1:00 PM) | Walima: 7:00 PM at Umer Marriage Hall, Mandi Bahauddin.",
+      "LOCATION:Umer Marriage Hall, Mandi Bahauddin",
       "END:VEVENT",
       "END:VCALENDAR",
     ].join("\r\n");
@@ -427,7 +355,7 @@ function initSaveDate() {
     const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "zayn-and-nora-wedding.ics";
+    link.download = "wedding-invitation.ics";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -465,53 +393,13 @@ function initCountdown() {
   setInterval(tick, 1000);
 }
 
-// --- 9. RSVP Form Handling ---
-function initRSVP() {
-  const form = document.getElementById("rsvp-form");
-  const nameInput = document.getElementById("rsvp-name");
-  const emailInput = document.getElementById("rsvp-email");
-  const errorEl = document.getElementById("rsvp-error");
-  const thanksEl = document.getElementById("rsvp-thanks");
-  const resetBtn = document.getElementById("rsvp-reset");
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const dict = copy[currentLang];
-    const nameVal = nameInput.value.trim();
-    const emailVal = emailInput.value.trim();
-
-    if (!nameVal) {
-      errorEl.textContent = dict.needName;
-      errorEl.style.display = "block";
-      return;
-    }
-    if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
-      errorEl.textContent = dict.needEmail;
-      errorEl.style.display = "block";
-      return;
-    }
-
-    errorEl.style.display = "none";
-    chime();
-    form.style.display = "none";
-    thanksEl.style.display = "block";
-  });
-
-  resetBtn.addEventListener("click", () => {
-    form.reset();
-    thanksEl.style.display = "none";
-    form.style.display = "grid";
-  });
-}
-
-// --- 10. Initialize All Controls ---
+// --- 9. Initialize All Controls ---
 document.addEventListener("DOMContentLoaded", () => {
   renderCopy();
   initEnvelope();
   initScratchCard();
   initSaveDate();
   initCountdown();
-  initRSVP();
 
   document.getElementById("music-btn").addEventListener("click", () => {
     if (playing) stopMusic();
@@ -519,7 +407,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("lang-btn").addEventListener("click", () => {
-    currentLang = currentLang === "en" ? "ar" : "en";
+    currentLang = currentLang === "en" ? "ur" : "en";
     renderCopy();
   });
 });
