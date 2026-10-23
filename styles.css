@@ -17,7 +17,7 @@
 
   --font-serif: "Cormorant Garamond", "Times New Roman", serif;
   --font-script: "Great Vibes", cursive;
-  --font-ar: "Amiri", "Noto Naskh Arabic", serif;
+  --font-ur: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
 }
 
 *, *::before, *::after {
@@ -71,8 +71,9 @@ body {
   box-shadow: 0 24px 70px rgb(0 0 0 / 35%);
 }
 
-.phone[data-lang="ar"] {
-  font-family: var(--font-ar);
+.phone[data-lang="ur"] {
+  font-family: var(--font-ur);
+  line-height: 2;
 }
 
 .scroll {
@@ -127,6 +128,11 @@ body {
   letter-spacing: 0.03em;
 }
 
+.phone[data-lang="ur"] .married {
+  font-style: normal;
+  font-size: 1.15rem;
+}
+
 .hero h1 {
   margin: 0.35rem 0 0;
   font-weight: 400;
@@ -140,20 +146,21 @@ body {
   font-weight: 400;
 }
 
-.phone[data-lang="ar"] .script {
-  font-family: var(--font-ar);
-  font-style: italic;
+.phone[data-lang="ur"] .script {
+  font-family: var(--font-ur);
+  font-style: normal;
 }
 
 .name {
-  font-size: 2.85rem;
+  font-size: 2.5rem;
+  font-family: 'Times New Roman', Times, serif;
   line-height: 1;
   color: var(--color-ink);
 }
 
-.phone[data-lang="ar"] .name {
-  font-size: 2.7rem;
-  line-height: 1.25;
+.phone[data-lang="ur"] .name {
+  font-size: 2.35rem;
+  line-height: 1.6;
 }
 
 .kin {
@@ -168,6 +175,10 @@ body {
   font-style: normal;
   font-size: 0.92rem;
   margin-bottom: 0.15rem;
+}
+
+.phone[data-lang="ur"] .role {
+  letter-spacing: 0;
 }
 
 .amp {
@@ -222,11 +233,12 @@ body {
   text-wrap: pretty;
 }
 
-.phone[data-lang="ar"] .welcome,
-.phone[data-lang="ar"] .prose,
-.phone[data-lang="ar"] .kin {
+.phone[data-lang="ur"] .welcome,
+.phone[data-lang="ur"] .prose,
+.phone[data-lang="ur"] .kin {
   font-style: normal;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 2.1;
 }
 
 .section-head {
@@ -251,10 +263,11 @@ body {
   text-wrap: balance;
 }
 
-.phone[data-lang="ar"] .section-head h2,
-.phone[data-lang="ar"] .scratch-title,
-.phone[data-lang="ar"] .forever h2 {
-  font-size: 1.85rem;
+.phone[data-lang="ur"] .section-head h2,
+.phone[data-lang="ur"] .scratch-title,
+.phone[data-lang="ur"] .forever h2 {
+  font-size: 1.55rem;
+  line-height: 1.8;
 }
 
 .scratch-title {
@@ -345,6 +358,10 @@ body {
   font-style: italic;
 }
 
+.phone[data-lang="ur"] .invited {
+  font-style: normal;
+}
+
 .date-strong {
   font-size: 1.05rem;
   font-weight: 600;
@@ -373,10 +390,11 @@ body {
   opacity: 0.92;
 }
 
-.phone[data-lang="ar"] .sage-btn {
+.phone[data-lang="ur"] .sage-btn {
   letter-spacing: 0;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.8;
 }
 
 .sage-btn svg {
@@ -445,10 +463,11 @@ body {
   white-space: nowrap;
 }
 
-.phone[data-lang="ar"] .count-label {
+.phone[data-lang="ur"] .count-label {
   letter-spacing: 0;
   text-transform: none;
   font-size: 0.78rem;
+  line-height: 1.6;
 }
 
 .arrived {
@@ -526,88 +545,6 @@ body {
   gap: 1rem;
 }
 
-.stack {
-  display: grid;
-  gap: 1.15rem;
-}
-
-.code {
-  margin: 0.8rem 0 0;
-  letter-spacing: 0.18em;
-  color: var(--color-sage);
-  font-weight: 600;
-}
-
-.rsvp {
-  display: grid;
-  gap: 0.85rem;
-  text-align: start;
-  max-width: 22rem;
-  margin: 0 auto;
-}
-
-.rsvp label {
-  display: grid;
-  gap: 0.2rem;
-  font-size: 0.95rem;
-  color: var(--color-muted);
-}
-
-.rsvp input,
-.rsvp select,
-.rsvp textarea {
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid var(--color-line);
-  background: transparent;
-  color: var(--color-ink);
-  font-family: inherit;
-  font-size: 1.08rem;
-  padding: 0.55rem 0;
-  border-radius: 0;
-  min-height: 2.75rem;
-}
-
-.rsvp textarea {
-  resize: vertical;
-  min-height: 5rem;
-}
-
-.rsvp input:focus,
-.rsvp select:focus,
-.rsvp textarea:focus {
-  outline: none;
-  border-bottom-color: var(--color-sage);
-}
-
-.form-error {
-  margin: 0;
-  color: var(--color-sage-deep);
-  font-size: 0.95rem;
-}
-
-.thanks {
-  color: var(--color-sage);
-}
-
-.thanks svg {
-  width: 1.1rem;
-  height: 1.1rem;
-  margin: 0 auto 0.4rem;
-  display: block;
-}
-
-.text-btn {
-  margin-top: 0.6rem;
-  border: none;
-  background: none;
-  color: var(--color-sage);
-  font-family: inherit;
-  font-size: 1rem;
-  text-decoration: underline;
-  min-height: 2.75rem;
-}
-
 .hero-btn {
   position: absolute;
   z-index: 2;
@@ -618,7 +555,7 @@ body {
   border: 1px solid var(--color-line);
   background: color-mix(in srgb, var(--color-paper) 88%, transparent);
   color: var(--color-sage-deep);
-  font-family: var(--font-serif);
+  font-family: var(--font-ur);
   font-size: 0.95rem;
   display: inline-flex;
   align-items: center;
@@ -765,11 +702,12 @@ body {
   line-height: 1.25;
 }
 
-.phone[data-lang="ar"] .seal-label {
-  font-family: var(--font-ar);
+.phone[data-lang="ur"] .seal-label {
+  font-family: var(--font-ur);
   letter-spacing: 0;
   text-transform: none;
-  font-size: 1.05rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
   font-weight: 700;
 }
 
